@@ -18,6 +18,7 @@ using std::min;
 #include <memory.h>
 #include <tchar.h>
 #include <string>
+#include <memory>
 
 #include <windows.h>
 #include <Commdlg.h>

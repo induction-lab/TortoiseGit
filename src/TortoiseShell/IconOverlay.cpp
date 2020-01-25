@@ -171,8 +171,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 					status = git_wc_status_none;
 					break;
 				}
-				TGITCacheResponse itemStatus;
-				SecureZeroMemory(&itemStatus, sizeof(itemStatus));
+				TGITCacheResponse itemStatus = { 0 };
 				if (m_remoteCacheLink.GetStatusFromRemoteCache(tpath, &itemStatus, true))
 				{
 					if (itemStatus.m_bAssumeValid)

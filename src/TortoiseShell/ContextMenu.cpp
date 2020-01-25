@@ -136,8 +136,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder, LPDATAOBJECT pDataOb
 										status = git_wc_status_none;
 										continue;
 									}
-									TGITCacheResponse itemStatus;
-									SecureZeroMemory(&itemStatus, sizeof(itemStatus));
+									TGITCacheResponse itemStatus = { 0 };
 									if (m_remoteCacheLink.GetStatusFromRemoteCache(tpath, &itemStatus, true))
 									{
 										fetchedstatus = status = static_cast<git_wc_status_kind>(itemStatus.m_status);
@@ -255,8 +254,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder, LPDATAOBJECT pDataOb
 											status = git_wc_status_none;
 											continue;
 										}
-										TGITCacheResponse itemStatus;
-										SecureZeroMemory(&itemStatus, sizeof(itemStatus));
+										TGITCacheResponse itemStatus = { 0 };
 										if (m_remoteCacheLink.GetStatusFromRemoteCache(tpath, &itemStatus, true))
 										{
 											fetchedstatus = status = static_cast<git_wc_status_kind>(itemStatus.m_status);
@@ -393,8 +391,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder, LPDATAOBJECT pDataOb
 							status = git_wc_status_none;
 						else
 						{
-							TGITCacheResponse itemStatus;
-							SecureZeroMemory(&itemStatus, sizeof(itemStatus));
+							TGITCacheResponse itemStatus = { 0 };
 							if (m_remoteCacheLink.GetStatusFromRemoteCache(tpath, &itemStatus, true))
 								status = static_cast<git_wc_status_kind>(itemStatus.m_status);
 						}

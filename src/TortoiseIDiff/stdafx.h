@@ -32,6 +32,8 @@ using std::min;
 #include <tchar.h>
 #include <comdef.h>
 
+#include <memory>
+
 #include "MyMemDC.h"
 
 #include <atlbase.h>

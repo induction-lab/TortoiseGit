@@ -1,4 +1,4 @@
-// TortoiseGit - a Windows shell extension for easy version control
+﻿// TortoiseGit - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2007, 2009, 2012-2015, 2017 - TortoiseSVN
 
@@ -188,14 +188,14 @@ protected:
 private:
 	GdiplusStartupInput gdiplusStartupInput;
 	ULONG_PTR			gdiplusToken;
-	Bitmap *			pBitmap;
-	BYTE*				pBitmapBuffer;
+	std::unique_ptr<Bitmap> pBitmap;
+	std::unique_ptr<BYTE[]> pBitmapBuffer;
 	InterpolationMode	m_ip;
 	bool				bIsIcon;
 	bool				bIsTiff;
 	UINT				nCurrentIcon;
-	BYTE *				lpIcons;
-	HICON *				hIcons;
+	std::unique_ptr<BYTE[]> lpIcons;
+	std::unique_ptr<HICON[]>	hIcons;
 	DWORD				m_nSize;
 
 	#pragma pack(push, r1, 2)   // n = 16, pushed to stack
